@@ -12,21 +12,43 @@ const SideBar = () => {
                         </Link>
                     </li>
                     <li className="mb-4">
-                        <Link href="/" className="flex items-center p-2 hover:bg-gray-700 rounded">
+                        <Link href="/all-files" className="flex items-center p-2 hover:bg-gray-700 rounded">
                             <span className="ml-2">All Files</span>
                         </Link>
                     </li>
-                    {/* Add more navigation items here */}
-                </ul>
-            </nav>
-            <div className="mt-auto">
-                <ul>
                     <li className="mb-4">
-                        <Link href="/" className="flex items-center p-2 hover:bg-gray-700 rounded">
+                        <Link href="/private-files" className="flex items-center p-2 hover:bg-gray-700 rounded">
+                            <span className="ml-2">Private Files</span>
+                        </Link>
+                    </li>
+                    <li className="mb-4">
+                        <Link href="/shared-with-me" className="flex items-center p-2 hover:bg-gray-700 rounded">
+                            <span className="ml-2">Shared With Me</span>
+                        </Link>
+                    </li>
+                    <li className="mb-4">
+                        <Link href="/deleted-files" className="flex items-center p-2 hover:bg-gray-700 rounded">
+                            <span className="ml-2">Deleted Files</span>
+                        </Link>
+                    </li>
+                    <li className="mb-4">
+                        <Link href="/design" className="flex items-center p-2 hover:bg-gray-700 rounded">
+                            <span className="ml-2">Design</span>
+                        </Link>
+                    </li>
+                    <li className="mb-4">
+                        <Link href="/notifications" className="flex items-center p-2 hover:bg-gray-700 rounded">
+                            <span className="ml-2">Notifications</span>
+                        </Link>
+                    </li>
+                    <li className="mb-4">
+                        <Link href="/settings" className="flex items-center p-2 hover:bg-gray-700 rounded">
                             <span className="ml-2">Settings</span>
                         </Link>
                     </li>
                 </ul>
+            </nav>
+            <div className="mt-auto">
                 <div className="text-sm text-gray-400 mt-6">
                     <div>Storage</div>
                     <div className="bg-gray-800 h-2 rounded mt-1">
