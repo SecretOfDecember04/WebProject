@@ -1,5 +1,7 @@
 "use client";
+
 import { useState } from 'react';
+import SecurityMessage from './SecurityMessage';
 
 const tabs = [
     'General',
@@ -46,17 +48,17 @@ const MainContent = () => {
 const SecurityTab = () => {
     return (
         <div className="space-y-8">
-            <div className="big-gray-800 p-6 rounded shadow">
-                <div className="flex justify-between items-center">
-                    <h2 className="text-xl font-semibold">Your account security is 90%</h2>
-                    <button className="text-blue-500">Review security</button>
-                </div>
-            </div>
+            <SecurityMessage />
             <div className="big-gray-800 p-6 rounded shadow space-y-4">
                 <h2 className="text-xl font-semibold">Basics</h2>
                 <div className="flex justify-between items-center">
                     <div>Password</div>
-                    <div className="text-gray-400">●●●●●●●●</div>
+                    <div className="text-gray-400">●●●●●●●●●●●●●●●●</div>
+                    <button className="text-blue-500">Edit</button>
+                </div>
+                <div className="flex justify-between items-center">
+                    <div>Two-step verification</div>
+                    <div className="text-gray-400">Enabled</div>
                     <button className="text-blue-500">Edit</button>
                 </div>
             </div>
