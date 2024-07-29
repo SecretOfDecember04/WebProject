@@ -51,35 +51,54 @@ const SecurityTab = () => {
             <SecurityMessage />
             <div className="bg-gray-800 p-6 rounded shadow space-y-4">
                 <h2 className="text-xl font-semibold">Basics</h2>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center border-b border-gray-700 pb-4">
                     <div>Password</div>
-                    <div className="text-gray-400">●●●●●●●●</div>
-                    <button className="text-blue-500">Edit</button>
+                    <div className="text-gray-400 text-sm">Set a password to protect your account.</div>
                 </div>
-                <div className="flex justify-between items-center">
-                    <div>Two-step verification</div>
-                    <div className="text-gray-400">Enabled</div>
-                    <button className="text-blue-500">Edit</button>
-                </div>
+                <div className="text-gray-400">●●●●●●●●●●●●●●●●●●●●</div>
+                <button className="text-blue-500">Edit</button>
             </div>
+                <div className="flex justify-between items-center border-b border-gray-700 pb-4">
+                    <div>
+                        <div>Two-step verification</div>
+                        <div className="text-gray-400 text-sm">We recommend requiring a verification code in addition to your password.</div>
+                    </div>
+                    <div className="flex items-center">
+                        <div className="text-gray-400 mr-2">Enabled</div>
+                        <button className="text-blue-500">Edit</button>
+                    </div>
+                </div>
             <div className="bg-gray-800 p-6 rounded shadow space-y-4">
                 <h2 className="text-xl font-semibold">Browsers and devices</h2>
+                <div className="text-gray-400 text-sm mb-4">These browsers and devices are currently signed in to your account. Remove any unauthorized devices.</div>
                 <div className="space-y-2">
-                    <div className="flex justify-between items-center">
+                    <div className="flex justify-between items-center border-b border-gray-700 pb-2">
                         <div>Brave on Mac OS X - Ninh Binh, Vietnam</div>
-                        <button className="text-blue-500">Remove</button>
+                        <div className="flex items-center space-x-2">
+                            <div className="text-gray-400">Current session</div>
+                            <button className="text-blue-500">Remove</button>
+                        </div>
                     </div>
-                    <div className="flex justify-between items-center">
+                    <div className="flex justify-between items-center border-b border-gray-700 pb-2">
                         <div>Mia's MacBook Pro - Ninh Binh, Vietnam</div>
-                        <button className="text-blue-500">Remove</button>
+                        <div className="flex items-center space-x-2">
+                            <div className="text-gray-400">Current session</div>
+                            <button className="text-blue-500">Remove</button>
+                        </div>
                     </div>
-                    <div className="flex justify-between items-center">
+                    <div className="flex justify-between items-center border-b border-gray-700 pb-2">
                         <div>Brave on Mac OS X - Mexico City, Mexico</div>
-                        <button className="text-blue-500">Remove</button>
+                        <div className="flex items-center space-x-2">
+                            <div className="text-gray-400">1 month ago</div>
+                            <button className="text-blue-500">Remove</button>
+                        </div>
                     </div>
                     <div className="flex justify-between items-center">
                         <div>Mia's MacBook Pro - Mexico City, Mexico</div>
-                        <button className="text-blue-500">Remove</button>
+                        <div className="flex items-center space-x-2">
+                            <div className="text-gray-400">1 month ago</div>
+                            <button className="text-blue-500">Remove</button>
+                        </div>
                     </div>
                 </div>
             </div>
