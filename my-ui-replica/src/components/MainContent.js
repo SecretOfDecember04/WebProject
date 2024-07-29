@@ -22,9 +22,6 @@ const MainContent = () => {
         <div className="flex-1 flex flex-col bg-gray-900 text-white">
             <TopBar />
             <div className="p-8 flex-1 overflow-auto">
-                <div className="flex items-center justify-between">
-                    <h1 className="text-3xl font-semibold mb-4">Mia de Silva</h1>
-                </div>
                 <div className="mt-4">
                     <div className="flex space-x-4 border-b border-gray-700">
                         {tabs.map((tab) => (
