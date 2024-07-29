@@ -46,6 +46,43 @@ const MainContent = () => {
 };
 
 const SecurityTab = () => {
+    const [password, setPassword] = useState('password');
+    const [isEditing, setIsEditing] = useState(false);
+    const [passwordStrength, setPasswordStrength] = useState('weak');
+
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+        setPasswordStrength(checkPasswordStrength(newPassword));
+    };
+
+    const handleEditClick = () => {
+        setIsEditing(!isEditing);
+    };
+
+    const checkPasswordStrength = (password) => {
+        let passStrength = 0;
+        password.length > 8 && passStrength++;
+        /[A-Z]/.test(password) && passStrength++;
+        /[a-z]/.test(password) && passStrength++;
+        /[0-9]/.test(password) && passStrength++;
+        /[^A-Za-z0-9]/.test(password) && passStrength++;
+
+        switch (passStrength) {
+            case 1:
+                return 'Weak';
+            case 2:
+                return 'Okay';
+            case 3:
+                return 'Good';
+            case 4:
+                return 'Strong';
+            case 5:
+                return 'Very Strong';
+            default:
+                return 'Weak';
+        }
+    };
+
     return (
         <div className="space-y-8">
             <SecurityMessage />
@@ -53,21 +90,36 @@ const SecurityTab = () => {
                 <h2 className="text-xl font-semibold">Basics</h2>
                 <div className="flex justify-between items-center border-b border-gray-700 pb-4">
                     <div>Password</div>
-                    <div className="text-gray-400 text-sm">Set a password to protect your account.</div>
+                    <div className="text-gray-400 flex items-center">
+                        {isEditing ? (
+                            <input
+                                type="text"
+                                value={password}
+                                onChange={handlePasswordChange}
+                                className="bg-gray-900 text-white p-2 rounded"
+                            />
+                        ) : (
+                            '●'.repeat(password.length)
+                        )}
+                        {passwordStrength === 'Very Strong' && (
+                            <FaCheckCircle className="text-green-500 ml-2" />
+                        )}
+                    </div>
+                    <button className="text-blue-500" onClick={handleEditClick}>
+                        {isEditing ? 'Save' : 'Edit'}
+                    </button>
                 </div>
-                <div className="text-gray-400">●●●●●●●●●●●●●●●●●●●●</div>
-                <button className="text-blue-500">Edit</button>
+                {passwordStrength && (
+                    <div className={`mt-2 ${passwordStrength === 5 ? 'text-green-500' : 'text-red-500'}`}>
+                        {passwordStrength}
+                    </div>
+                )}
+                <div className="flex justify-between items-center">
+                    <div>Two-step verification</div>
+                    <div className="text-gray-400">Enabled</div>
+                    <button className="text-blue-500">Edit</button>
+                </div>
             </div>
-                <div className="flex justify-between items-center border-b border-gray-700 pb-4">
-                    <div>
-                        <div>Two-step verification</div>
-                        <div className="text-gray-400 text-sm">We recommend requiring a verification code in addition to your password.</div>
-                    </div>
-                    <div className="flex items-center">
-                        <div className="text-gray-400 mr-2">Enabled</div>
-                        <button className="text-blue-500">Edit</button>
-                    </div>
-                </div>
             <div className="bg-gray-800 p-6 rounded shadow space-y-4">
                 <h2 className="text-xl font-semibold">Browsers and devices</h2>
                 <div className="text-gray-400 text-sm mb-4">These browsers and devices are currently signed in to your account. Remove any unauthorized devices.</div>
