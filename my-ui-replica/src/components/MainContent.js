@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import TopBar from './TopBar';
 import SecurityMessage from './SecurityMessage';
-import { FaCheckCircle } from 'react-icons/fa';
+import { FaCheckCircle, FaTrash } from 'react-icons/fa';
 
 const tabs = [
     'General',
@@ -114,7 +114,10 @@ const SecurityTab = () => {
                             )}
                         </div>
                         <div className="flex-1 flex justify-end items-center">
-                            <button className="text-blue-500" onClick={handleEditClick}>
+                            <button
+                                className="text-gray-400 border border-gray-400 px-4 py-2 rounded"
+                                onClick={handleEditClick}
+                            >
                                 {isEditing ? 'Save' : 'Edit'}
                             </button>
                         </div>
@@ -123,39 +126,49 @@ const SecurityTab = () => {
                 <div className="flex justify-between items-center">
                     <div>Two-step verification</div>
                     <div className="text-gray-400">Enabled</div>
-                    <button className="text-blue-500">Edit</button>
+                    <button className="text-gray-400 border border-gray-400 px-4 py-2 rounded">Edit</button>
                 </div>
             </div>
             <div className="bg-gray-800 p-6 rounded shadow space-y-4">
                 <h2 className="text-xl font-semibold">Browsers and devices</h2>
-                <div className="text-gray-400 text-sm mb-4">These browsers and devices are currently signed in to your account. Remove any unauthorized devices.</div>
+                <div className="text-gray-400 text-sm mb-4">These browsers and devices are currently signed in to your
+                    account. Remove any unauthorized devices.
+                </div>
                 <div className="space-y-2">
                     <div className="flex justify-between items-center border-b border-gray-700 pb-2">
                         <div>Brave on Mac OS X - Ninh Binh, Vietnam</div>
                         <div className="flex items-center space-x-2">
                             <div className="text-gray-400">Current session</div>
-                            <button className="text-blue-500">Remove</button>
+                            <button className="text-gray-400 hover:text-red-700">
+                                <FaTrash/>
+                            </button>
                         </div>
                     </div>
                     <div className="flex justify-between items-center border-b border-gray-700 pb-2">
                         <div>Mia's MacBook Pro - Ninh Binh, Vietnam</div>
                         <div className="flex items-center space-x-2">
                             <div className="text-gray-400">Current session</div>
-                            <button className="text-blue-500">Remove</button>
+                            <button className="text-gray-400 hover:text-red-700">
+                                <FaTrash/>
+                            </button>
                         </div>
                     </div>
                     <div className="flex justify-between items-center border-b border-gray-700 pb-2">
                         <div>Brave on Mac OS X - Mexico City, Mexico</div>
                         <div className="flex items-center space-x-2">
                             <div className="text-gray-400">1 month ago</div>
-                            <button className="text-blue-500">Remove</button>
+                            <button className="text-gray-400 hover:text-red-700">
+                                <FaTrash/>
+                            </button>
                         </div>
                     </div>
                     <div className="flex justify-between items-center">
                         <div>Mia's MacBook Pro - Mexico City, Mexico</div>
                         <div className="flex items-center space-x-2">
                             <div className="text-gray-400">1 month ago</div>
-                            <button className="text-blue-500">Remove</button>
+                            <button className="text-gray-400 hover:text-red-700">
+                                <FaTrash/>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -163,5 +176,6 @@ const SecurityTab = () => {
         </div>
     );
 };
+
 
 export default MainContent;
