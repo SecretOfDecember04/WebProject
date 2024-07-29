@@ -20,9 +20,9 @@ const MainContent = () => {
     const [activeTab, setActiveTab] = useState('Security');
 
     return (
-        <div className="flex-1 flex flex-col bg-gray-900 text-white">
+        <div className="flex-1 flex flex-col bg-black text-white">
             <TopBar />
-            <div className="p-8 flex-1 overflow-auto">
+            <div className="p-8 flex-1 overflow-auto bg-gray-900">
                 <div className="mt-4">
                     <div className="flex space-x-4 border-b border-gray-700">
                         {tabs.map((tab) => (
@@ -92,7 +92,10 @@ const SecurityTab = () => {
                 <h2 className="text-xl font-semibold">Basics</h2>
                 <div className="border-b border-gray-700 pb-4">
                     <div className="flex justify-between items-center space-x-4">
-                        <div className="flex-1">Password</div>
+                        <div className="flex-1">
+                            Password
+                            <div className="text-gray-400 text-sm">Set a password to protect your account.</div>
+                        </div>
                         <div className="flex-1 flex justify-center items-center space-x-2">
                             {isEditing ? (
                                 <input
@@ -131,16 +134,14 @@ const SecurityTab = () => {
             </div>
             <div className="bg-gray-800 p-6 rounded shadow space-y-4">
                 <h2 className="text-xl font-semibold">Browsers and devices</h2>
-                <div className="text-gray-400 text-sm mb-4">These browsers and devices are currently signed in to your
-                    account. Remove any unauthorized devices.
-                </div>
+                <div className="text-gray-400 text-sm mb-4">These browsers and devices are currently signed in to your account. Remove any unauthorized devices.</div>
                 <div className="space-y-2">
                     <div className="flex justify-between items-center border-b border-gray-700 pb-2">
                         <div>Brave on Mac OS X - Ninh Binh, Vietnam</div>
                         <div className="flex items-center space-x-2">
                             <div className="text-gray-400">Current session</div>
                             <button className="text-gray-400 hover:text-red-700">
-                                <FaTrash/>
+                                <FaTrash />
                             </button>
                         </div>
                     </div>
@@ -149,7 +150,7 @@ const SecurityTab = () => {
                         <div className="flex items-center space-x-2">
                             <div className="text-gray-400">Current session</div>
                             <button className="text-gray-400 hover:text-red-700">
-                                <FaTrash/>
+                                <FaTrash />
                             </button>
                         </div>
                     </div>
@@ -158,7 +159,7 @@ const SecurityTab = () => {
                         <div className="flex items-center space-x-2">
                             <div className="text-gray-400">1 month ago</div>
                             <button className="text-gray-400 hover:text-red-700">
-                                <FaTrash/>
+                                <FaTrash />
                             </button>
                         </div>
                     </div>
@@ -167,7 +168,7 @@ const SecurityTab = () => {
                         <div className="flex items-center space-x-2">
                             <div className="text-gray-400">1 month ago</div>
                             <button className="text-gray-400 hover:text-red-700">
-                                <FaTrash/>
+                                <FaTrash />
                             </button>
                         </div>
                     </div>
@@ -176,6 +177,5 @@ const SecurityTab = () => {
         </div>
     );
 };
-
 
 export default MainContent;
