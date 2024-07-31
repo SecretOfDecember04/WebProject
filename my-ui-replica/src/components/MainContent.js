@@ -5,6 +5,7 @@ import TopBar from './TopBar';
 import SecurityMessage from './SecurityMessage';
 import { FaCheckCircle, FaTrash } from 'react-icons/fa';
 import { Switch } from '@mui/material';
+import ReactCountryFlag from "react-country-flag";
 
 const tabs = [
     'General',
@@ -162,36 +163,48 @@ const SecurityTab = () => {
                 <div className="border-b border-gray-700 mb-4"></div>
                 <div className="space-y-2">
                     <div className="flex justify-between items-center border-b border-gray-700 pb-2">
-                        <div>Brave on Mac OS X - Ninh Binh, Vietnam</div>
-                        <div className="flex items-center space-x-2">
-                            <div className="text-gray-400">Current session</div>
+                        <div className="flex flex-1 justify-between items-center pr-4">
+                            <div>Brave on Mac OS X</div>
+                            <div className="text-right text-gray-400">Ninh Binh, Vietnam</div>
+                        </div>
+                        <div className="flex items-center space-x-2" style={{ minWidth: '180px' }}>
+                            <div className="text-gray-400 text-center" style={{ width: '120px' }}>Current session</div>
                             <button className="text-gray-400 hover:text-red-700">
                                 <FaTrash />
                             </button>
                         </div>
                     </div>
                     <div className="flex justify-between items-center border-b border-gray-700 pb-2">
-                        <div>Mia's MacBook Pro - Ninh Binh, Vietnam</div>
-                        <div className="flex items-center space-x-2">
-                            <div className="text-gray-400">Current session</div>
+                        <div className="flex flex-1 justify-between items-center pr-4">
+                            <div>Mia's MacBook Pro</div>
+                            <div className="text-right text-gray-400">Ninh Binh, Vietnam</div>
+                        </div>
+                        <div className="flex items-center space-x-2" style={{ minWidth: '180px' }}>
+                            <div className="text-gray-400 text-center" style={{ width: '120px' }}>Current session</div>
                             <button className="text-gray-400 hover:text-red-700">
                                 <FaTrash />
                             </button>
                         </div>
                     </div>
                     <div className="flex justify-between items-center border-b border-gray-700 pb-2">
-                        <div>Brave on Mac OS X - Mexico City, Mexico</div>
-                        <div className="flex items-center space-x-2">
-                            <div className="text-gray-400">1 month ago</div>
+                        <div className="flex flex-1 justify-between items-center pr-4">
+                            <div>Brave on Mac OS X</div>
+                            <div className="text-right text-gray-400">Mexico City, Mexico</div>
+                        </div>
+                        <div className="flex items-center space-x-2" style={{ minWidth: '180px' }}>
+                            <div className="text-gray-400 text-center" style={{ width: '120px' }}>1 month ago</div>
                             <button className="text-gray-400 hover:text-red-700">
                                 <FaTrash />
                             </button>
                         </div>
                     </div>
                     <div className="flex justify-between items-center">
-                        <div>Mia's MacBook Pro - Mexico City, Mexico</div>
-                        <div className="flex items-center space-x-2">
-                            <div className="text-gray-400">1 month ago</div>
+                        <div className="flex flex-1 justify-between items-center pr-4">
+                            <div>Mia's MacBook Pro</div>
+                            <div className="text-right text-gray-400">Mexico City, Mexico</div>
+                        </div>
+                        <div className="flex items-center space-x-2" style={{ minWidth: '180px' }}>
+                            <div className="text-gray-400 text-center" style={{ width: '120px' }}>1 month ago</div>
                             <button className="text-gray-400 hover:text-red-700">
                                 <FaTrash />
                             </button>
