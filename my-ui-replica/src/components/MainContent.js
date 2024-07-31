@@ -3,7 +3,9 @@
 import { useState } from 'react';
 import TopBar from './TopBar';
 import SecurityMessage from './SecurityMessage';
-import { FaCheckCircle } from 'react-icons/fa';
+import { FaCheckCircle, FaTrash } from 'react-icons/fa';
+import { Switch } from '@mui/material';
+import ReactCountryFlag from "react-country-flag";
 
 const tabs = [
     'General',
@@ -20,9 +22,9 @@ const MainContent = () => {
     const [activeTab, setActiveTab] = useState('Security');
 
     return (
-        <div className="flex-1 flex flex-col bg-gray-900 text-white">
+        <div className="flex-1 flex flex-col bg-black text-white">
             <TopBar />
-            <div className="p-8 flex-1 overflow-auto">
+            <div className="p-8 flex-1 overflow-auto bg-gray-900">
                 <div className="mt-4">
                     <div className="flex space-x-4 border-b border-gray-700">
                         {tabs.map((tab) => (
@@ -50,6 +52,7 @@ const SecurityTab = () => {
     const [password, setPassword] = useState('password');
     const [isEditing, setIsEditing] = useState(false);
     const [passwordStrength, setPasswordStrength] = useState('Weak');
+    const [twoFactorEnabled, setTwoFactorEnabled] = useState(true);
 
     const handlePasswordChange = (e) => {
         const newPassword = e.target.value;
@@ -92,7 +95,10 @@ const SecurityTab = () => {
                 <h2 className="text-xl font-semibold">Basics</h2>
                 <div className="border-b border-gray-700 pb-4">
                     <div className="flex justify-between items-center space-x-4">
-                        <div className="flex-1">Password</div>
+                        <div className="flex-1">
+                            Password
+                            <div className="text-gray-400 text-sm">Set a password to protect your account.</div>
+                        </div>
                         <div className="flex-1 flex justify-center items-center space-x-2">
                             {isEditing ? (
                                 <input
@@ -114,48 +120,106 @@ const SecurityTab = () => {
                             )}
                         </div>
                         <div className="flex-1 flex justify-end items-center">
-                            <button className="text-blue-500" onClick={handleEditClick}>
+                            <button
+                                className="text-gray-400 border border-gray-400 px-4 py-2 rounded"
+                                onClick={handleEditClick}
+                            >
                                 {isEditing ? 'Save' : 'Edit'}
                             </button>
                         </div>
                     </div>
                 </div>
-                <div className="flex justify-between items-center">
-                    <div>Two-step verification</div>
-                    <div className="text-gray-400">Enabled</div>
-                    <button className="text-blue-500">Edit</button>
+                <div className="border-b border-gray-700 pb-4">
+                    <div className="flex justify-between items-center">
+                        <div className="flex-1">
+                            Two-step verification
+                            <div className="text-gray-400 text-sm">
+                                We recommend requiring a verification
+                                <br />
+                                code in addition to your password.
+                            </div>
+                        </div>
+                        <div className="flex-1 flex justify-center items-center space-x-2">
+                            <Switch
+                                checked={twoFactorEnabled}
+                                onChange={() => setTwoFactorEnabled(!twoFactorEnabled)}
+                                color="primary"
+                            />
+                            <span className="ml-2 text-sm text-gray-400 w-48 text-center">
+                                {twoFactorEnabled ? 'Two-step verification' : 'No two-step verification'}
+                            </span>
+                        </div>
+                        <div className="flex-1 flex justify-end items-center">
+                            <button className="text-gray-400 border border-gray-400 px-4 py-2 rounded">Edit</button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="bg-gray-800 p-6 rounded shadow space-y-4">
                 <h2 className="text-xl font-semibold">Browsers and devices</h2>
-                <div className="text-gray-400 text-sm mb-4">These browsers and devices are currently signed in to your account. Remove any unauthorized devices.</div>
+                <div className="text-gray-400 text-sm mb-4">
+                    These browsers and devices are currently signed in to your account. Remove any unauthorized devices.
+                </div>
+                <div className="border-b border-gray-700 mb-4"></div>
                 <div className="space-y-2">
                     <div className="flex justify-between items-center border-b border-gray-700 pb-2">
-                        <div>Brave on Mac OS X - Ninh Binh, Vietnam</div>
-                        <div className="flex items-center space-x-2">
-                            <div className="text-gray-400">Current session</div>
-                            <button className="text-blue-500">Remove</button>
+                        <div className="flex flex-1 justify-between items-center pr-4">
+                            <div>Brave on Mac OS X</div>
+                            <div className="flex items-center space-x-2 text-right text-gray-400">
+                                <ReactCountryFlag countryCode="VN" svg />
+                                <span>Ninh Binh, Vietnam</span>
+                            </div>
+                        </div>
+                        <div className="flex items-center space-x-2" style={{ minWidth: '180px' }}>
+                            <div className="text-gray-400 text-center" style={{ width: '120px' }}>Current session</div>
+                            <button className="text-gray-400 hover:text-red-700">
+                                <FaTrash />
+                            </button>
                         </div>
                     </div>
                     <div className="flex justify-between items-center border-b border-gray-700 pb-2">
-                        <div>Mia's MacBook Pro - Ninh Binh, Vietnam</div>
-                        <div className="flex items-center space-x-2">
-                            <div className="text-gray-400">Current session</div>
-                            <button className="text-blue-500">Remove</button>
+                        <div className="flex flex-1 justify-between items-center pr-4">
+                            <div>Mia's MacBook Pro</div>
+                            <div className="flex items-center space-x-2 text-right text-gray-400">
+                                <ReactCountryFlag countryCode="VN" svg />
+                                <span>Ninh Binh, Vietnam</span>
+                            </div>
+                        </div>
+                        <div className="flex items-center space-x-2" style={{ minWidth: '180px' }}>
+                            <div className="text-gray-400 text-center" style={{ width: '120px' }}>Current session</div>
+                            <button className="text-gray-400 hover:text-red-700">
+                                <FaTrash />
+                            </button>
                         </div>
                     </div>
                     <div className="flex justify-between items-center border-b border-gray-700 pb-2">
-                        <div>Brave on Mac OS X - Mexico City, Mexico</div>
-                        <div className="flex items-center space-x-2">
-                            <div className="text-gray-400">1 month ago</div>
-                            <button className="text-blue-500">Remove</button>
+                        <div className="flex flex-1 justify-between items-center pr-4">
+                            <div>Brave on Mac OS X</div>
+                            <div className="flex items-center space-x-2 text-right text-gray-400">
+                                <ReactCountryFlag countryCode="MX" svg />
+                                <span>Mexico City, Mexico</span>
+                            </div>
+                        </div>
+                        <div className="flex items-center space-x-2" style={{ minWidth: '180px' }}>
+                            <div className="text-gray-400 text-center" style={{ width: '120px' }}>1 month ago</div>
+                            <button className="text-gray-400 hover:text-red-700">
+                                <FaTrash />
+                            </button>
                         </div>
                     </div>
                     <div className="flex justify-between items-center">
-                        <div>Mia's MacBook Pro - Mexico City, Mexico</div>
-                        <div className="flex items-center space-x-2">
-                            <div className="text-gray-400">1 month ago</div>
-                            <button className="text-blue-500">Remove</button>
+                        <div className="flex flex-1 justify-between items-center pr-4">
+                            <div>Mia's MacBook Pro</div>
+                            <div className="flex items-center space-x-2 text-right text-gray-400">
+                                <ReactCountryFlag countryCode="MX" svg />
+                                <span>Mexico City, Mexico</span>
+                            </div>
+                        </div>
+                        <div className="flex items-center space-x-2" style={{ minWidth: '180px' }}>
+                            <div className="text-gray-400 text-center" style={{ width: '120px' }}>1 month ago</div>
+                            <button className="text-gray-400 hover:text-red-700">
+                                <FaTrash />
+                            </button>
                         </div>
                     </div>
                 </div>
