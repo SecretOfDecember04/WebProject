@@ -22,8 +22,12 @@ const TopBar = () => {
                 </div>
                 <button className="text-gray-400 border border-gray-400 px-4 py-2 rounded"> + Invite</button>
                 <button className="bg-blue-500 text-white px-4 py-2 rounded">Upgrade</button>
-                <div className="w-10 h-10 rounded-full bg-gray-600">
-                    {"picture"}
+                <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-600">
+                    <img
+                        src="https://via.placeholder.com/150"
+                        alt="Profile"
+                        className="w-full h-full object-cover"
+                    />
                 </div>
             </div>
         </div>
