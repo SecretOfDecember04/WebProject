@@ -1,60 +1,36 @@
+"use client";
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { FaHome, FaFileAlt, FaLock, FaShareAlt, FaTrash, FaPalette, FaBell, FaCog } from 'react-icons/fa';
 
 const SideBar = () => {
+    const pathname = usePathname();
+
+    const links = [
+        { href: '/', label: 'Home', icon: FaHome },
+        { href: '/all-files', label: 'All Files', icon: FaFileAlt },
+        { href: '/private-files', label: 'Private Files', icon: FaLock },
+        { href: '/shared-with-me', label: 'Shared With Me', icon: FaShareAlt },
+        { href: '/deleted-files', label: 'Deleted Files', icon: FaTrash },
+        { href: '/design', label: 'Design', icon: FaPalette },
+        { href: '/notifications', label: 'Notifications', icon: FaBell },
+        { href: '/settings', label: 'Settings', icon: FaCog },
+    ];
+
     return (
         <div className="bg-gray-900 text-white h-full w-64 p-4 flex flex-col">
             <div className="text-2xl font-bold mb-6">Untitled UI</div>
             <nav className="flex-1">
                 <ul>
-                    <li className="mb-4">
-                        <Link href="/" className="flex items-center p-2 hover:bg-gray-700 rounded">
-                            <FaHome />
-                            <span className="ml-2">Home</span>
-                        </Link>
-                    </li>
-                    <li className="mb-4">
-                        <Link href="/all-files" className="flex items-center p-2 hover:bg-gray-700 rounded">
-                            <FaFileAlt />
-                            <span className="ml-2">All Files</span>
-                        </Link>
-                    </li>
-                    <li className="mb-4">
-                        <Link href="/private-files" className="flex items-center p-2 hover:bg-gray-700 rounded">
-                            <FaLock />
-                            <span className="ml-2">Private Files</span>
-                        </Link>
-                    </li>
-                    <li className="mb-4">
-                        <Link href="/shared-with-me" className="flex items-center p-2 hover:bg-gray-700 rounded">
-                            <FaShareAlt />
-                            <span className="ml-2">Shared With Me</span>
-                        </Link>
-                    </li>
-                    <li className="mb-4">
-                        <Link href="/deleted-files" className="flex items-center p-2 hover:bg-gray-700 rounded">
-                            <FaTrash />
-                            <span className="ml-2">Deleted Files</span>
-                        </Link>
-                    </li>
-                    <li className="mb-4">
-                        <Link href="/design" className="flex items-center p-2 hover:bg-gray-700 rounded">
-                            <FaPalette />
-                            <span className="ml-2">Design</span>
-                        </Link>
-                    </li>
-                    <li className="mb-4">
-                        <Link href="/notifications" className="flex items-center p-2 hover:bg-gray-700 rounded">
-                            <FaBell />
-                            <span className="ml-2">Notifications</span>
-                        </Link>
-                    </li>
-                    <li className="mb-4">
-                        <Link href="/settings" className="flex items-center p-2 hover:bg-gray-700 rounded">
-                            <FaCog />
-                            <span className="ml-2">Settings</span>
-                        </Link>
-                    </li>
+                    {links.map(({ href, label, icon: Icon }) => (
+                        <li key={href} className="mb-4">
+                            <Link href={href} className={`flex items-center p-2 rounded ${pathname === href ? 'bg-gray-700' : 'hover:bg-gray-700'}`}>
+                                <Icon />
+                                <span className="ml-2">{label}</span>
+                            </Link>
+                        </li>
+                    ))}
                 </ul>
             </nav>
             <div className="mt-auto">

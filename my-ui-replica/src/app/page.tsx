@@ -1,12 +1,6 @@
-import SideBar from "@/components/SideBar";
-import MainContent from "@/components/MainContent";
+import { redirect } from 'next/navigation'
 
 export default function Home() {
-  return (
-    <div className="flex h-screen">
-      <SideBar />
-      <MainContent />
-    </div>
-
-  );
+    redirect('/settings');
+    return null;
 }
