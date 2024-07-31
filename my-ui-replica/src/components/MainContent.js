@@ -165,7 +165,10 @@ const SecurityTab = () => {
                     <div className="flex justify-between items-center border-b border-gray-700 pb-2">
                         <div className="flex flex-1 justify-between items-center pr-4">
                             <div>Brave on Mac OS X</div>
-                            <div className="text-right text-gray-400">Ninh Binh, Vietnam</div>
+                            <div className="flex items-center space-x-2 text-right text-gray-400">
+                                <ReactCountryFlag countryCode="VN" svg />
+                                <span>Ninh Binh, Vietnam</span>
+                            </div>
                         </div>
                         <div className="flex items-center space-x-2" style={{ minWidth: '180px' }}>
                             <div className="text-gray-400 text-center" style={{ width: '120px' }}>Current session</div>
@@ -177,7 +180,10 @@ const SecurityTab = () => {
                     <div className="flex justify-between items-center border-b border-gray-700 pb-2">
                         <div className="flex flex-1 justify-between items-center pr-4">
                             <div>Mia's MacBook Pro</div>
-                            <div className="text-right text-gray-400">Ninh Binh, Vietnam</div>
+                            <div className="flex items-center space-x-2 text-right text-gray-400">
+                                <ReactCountryFlag countryCode="VN" svg />
+                                <span>Ninh Binh, Vietnam</span>
+                            </div>
                         </div>
                         <div className="flex items-center space-x-2" style={{ minWidth: '180px' }}>
                             <div className="text-gray-400 text-center" style={{ width: '120px' }}>Current session</div>
@@ -189,7 +195,10 @@ const SecurityTab = () => {
                     <div className="flex justify-between items-center border-b border-gray-700 pb-2">
                         <div className="flex flex-1 justify-between items-center pr-4">
                             <div>Brave on Mac OS X</div>
-                            <div className="text-right text-gray-400">Mexico City, Mexico</div>
+                            <div className="flex items-center space-x-2 text-right text-gray-400">
+                                <ReactCountryFlag countryCode="MX" svg />
+                                <span>Mexico City, Mexico</span>
+                            </div>
                         </div>
                         <div className="flex items-center space-x-2" style={{ minWidth: '180px' }}>
                             <div className="text-gray-400 text-center" style={{ width: '120px' }}>1 month ago</div>
@@ -201,7 +210,10 @@ const SecurityTab = () => {
                     <div className="flex justify-between items-center">
                         <div className="flex flex-1 justify-between items-center pr-4">
                             <div>Mia's MacBook Pro</div>
-                            <div className="text-right text-gray-400">Mexico City, Mexico</div>
+                            <div className="flex items-center space-x-2 text-right text-gray-400">
+                                <ReactCountryFlag countryCode="MX" svg />
+                                <span>Mexico City, Mexico</span>
+                            </div>
                         </div>
                         <div className="flex items-center space-x-2" style={{ minWidth: '180px' }}>
                             <div className="text-gray-400 text-center" style={{ width: '120px' }}>1 month ago</div>
